@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
-import { FileSystem } from 'react-native-unimodules';
+import RNFS from 'react-native-fs';
 
 export default function BookSentencesRead() {
   const [content, setContent] = useState('');
@@ -8,7 +8,7 @@ export default function BookSentencesRead() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const content = await FileSystem.readAsStringAsync(FileSystem.documentDirectory + 'data.txt');
+        const content = await RNFS.readFile(RNFS.DocumentDirectoryPath + '/data.txt', 'utf8');
         const cleanedContent = content.replace(/[\n\t ]+/g, ' ').trim();
         const sentences = cleanedContent.split('.').map((sentence, index) => {
           return {
@@ -22,11 +22,7 @@ export default function BookSentencesRead() {
 
         const jsonData = JSON.stringify(sentences);
 
-        await FileSystem.writeAsStringAsync(
-          FileSystem.documentDirectory + 'book_sentences.json',
-          jsonData,
-          { encoding: FileSystem.EncodingType.UTF8 }
-        );
+        await RNFS.writeFile(RNFS.DocumentDirectoryPath + '/book_sentences.json', jsonData, 'utf8');
       } catch (error) {
         console.error(error);
       }
@@ -36,8 +32,8 @@ export default function BookSentencesRead() {
 
     const readData = async () => {
       try {
-        const fileUri = FileSystem.documentDirectory + 'book_sentences.json';
-        const content = await FileSystem.readAsStringAsync(fileUri);
+        const fileUri = RNFS.DocumentDirectoryPath + '/book_sentences.json';
+        const content = await RNFS.readFile(fileUri, 'utf8');
         setContent(content);
       } catch (error) {
         console.log(error);

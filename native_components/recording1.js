@@ -14,10 +14,10 @@ import Voice from '@react-native-voice/voice';
 // import RNFS from 'react-native-fs';
 
 export default function recording1() {
-  const [state, setState] = useState({
-    email: '',
-    password: '',
-  });
+  // const [state, setState] = useState({
+  //   email: '',
+  //   password: '',
+  // });
   const [started, setStarted] = useState(false);
   const [results, setResults] = useState([]);
 

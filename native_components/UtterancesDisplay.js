@@ -13,7 +13,7 @@ const UtterancesDisplay = () => {
         const fileUri3 = `${RNFS.DocumentDirectoryPath}/book_sentences_read.json`;
         const fileUri4 = `${RNFS.DocumentDirectoryPath}/data.txt`;
 
-        const content = await RNFS.readFile(fileUri3, 'utf8');
+        const content = await RNFS.readFile(fileUri2, 'utf8');
         console.log('fileUri:', fileUri3);
         console.log('fileContent:', content);
 

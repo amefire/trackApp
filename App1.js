@@ -15,7 +15,7 @@ import UtterancesDisplay from './native_components/UtterancesDisplay'; //4 displ
 // imlort {NavigationContainer}
 import Home from './Home';
 import Settings from './Settings';
-// import recording1 from './native_components/recording1';
+import recording1 from './native_components/recording1';
 
 
 
@@ -29,11 +29,11 @@ export default function App1() {
     <Drawer.Navigator initialRouteName="Home">
       <Drawer.Screen name="Home" component={Home} />
       {/* <Drawer.Screen name="record" component={recording1} /> */}
-      <Drawer.Screen name="utterances" component={UtteranceBox} />
+       <Drawer.Screen name="utterances" component={UtteranceBox} />
       <Drawer.Screen name="book_sentences" component={bookSentencesRead} />
-      <Drawer.Screen name="save" component={save} />
+      {/* <Drawer.Screen name="save" component={save} /> */}
       <Drawer.Screen name="similarity check" component={BookContent} />
-      <Drawer.Screen name="book_sentences_read" component={UtterancesDisplay} />
+      <Drawer.Screen name="book_sentences_read" component={UtterancesDisplay} /> 
     </Drawer.Navigator>
   </NavigationContainer>
   );
